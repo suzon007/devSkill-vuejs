@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Demo for Globacomm</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/heroic-features.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+ 
+
+    <!-- Page Content -->
+    <div class="container" id="app">
+
+        <!-- Jumbotron Header -->
+        <header class="jumbotron hero-spacer">
+            <h1>Hello!</h1>
+            <p>Measure your skills.</p>
+            </p>
+        </header>
+
+        <hr>
+
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-md-8">
+                      <!-- Page Features -->
+                <div class="row text-center">
+
+                    <h3>Backend</h3>
+                    <label class="checkbox-inline"><input type="checkbox" value="PHP" v-model="checkedNames">PHP</label>
+                    <label class="checkbox-inline"><input type="checkbox" value="DOT NET" v-model="checkedNames">DOT NET</label>
+                    <label class="checkbox-inline"><input type="checkbox" value="Ruby" v-model="checkedNames">Ruby</label>
+                    <label class="checkbox-inline"><input type="checkbox" value="Python" v-model="checkedNames">Python</label>
+                    <label class="checkbox-inline"><input type="checkbox" value="Perl" v-model="checkedNames">Perl</label>
+                    <label class="checkbox-inline"><input type="checkbox" value="Node JS" v-model="checkedNames">JS(Node JS)</label>
+                    <label class="checkbox-inline"><input type="checkbox" value="Coffee Script" v-model="checkedNames">Coffee Script</label>
+                    <label class="checkbox-inline"><input type="checkbox" value="C" v-model="checkedNames">C</label>
+                    <label class="checkbox-inline"><input type="checkbox" value="C++" v-model="checkedNames">C++</label>
+
+                </div>
+                <!-- /.row -->
+
+                <!-- Page Features -->
+                <div class="row text-center">
+
+                    <h3>Frontend</h3>
+                    <label class="checkbox-inline"><input type="checkbox" value="HTML5" v-model="checkedNames">HTML5</label>
+                    <label class="checkbox-inline"><input type="checkbox" value="CSS3" v-model="checkedNames">CSS3</label>
+                    <label class="checkbox-inline"><input type="checkbox" value="JS" v-model="checkedNames">JS</label>
+                    <label class="checkbox-inline"><input type="checkbox" value="ActionScript" v-model="checkedNames">ActionScript</label>
+                    <label class="checkbox-inline"><input type="checkbox" value="CoffeeScript" v-model="checkedNames">CoffeeScript</label>
+                    <label class="checkbox-inline"><input type="checkbox" value="SVG" v-model="checkedNames">SVG</label>
+                    <label class="checkbox-inline"><input type="checkbox" value="VB Script" v-model="checkedNames">VB Script</label>
+                </div>
+                <!-- /.row -->
+
+                <!-- Page Features -->
+                <div class="row text-center">
+
+                    <h3>Database</h3>
+                    <label class="checkbox-inline"><input type="checkbox" value="SQL" v-model="checkedNames">SQL</label>
+                    <label class="checkbox-inline"><input type="checkbox" value="MySQL" v-model="checkedNames">MySQL</label>
+                    <label class="checkbox-inline"><input type="checkbox" value="SQLite" v-model="checkedNames">SQLite</label>
+                    <label class="checkbox-inline"><input type="checkbox" value="MangoDB" v-model="checkedNames">MangoDB</label>
+                    <label class="checkbox-inline"><input type="checkbox" value="PouchDB" v-model="checkedNames">PouchDB</label>
+                    <label class="checkbox-inline"><input type="checkbox" value="Oracle" v-model="checkedNames">Oracle</label>
+                    <label class="checkbox-inline"><input type="checkbox" value="CouchDB" v-model="checkedNames">CouchDB</label>
+
+                </div>
+                <!-- /.row -->
+                <hr>
+            </div>
+
+            <div class="col-md-4">
+                <h1>Your Percentage : {{percent()}}</h1>
+                <h1>Your Level : {{level()}}</h1>
+                <h1>Your Skills :</h1>
+                <ul>
+                    <li v-for="item in checkedNames">
+                        <p>{{ item }}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; <a href="zisuzon.com" title="zis">ZIS</a></p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Vue JS -->
+    <script src="https://unpkg.com/vue@2.0.3/dist/vue.js"></script>
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                checkedNames: [],
+                // total: 0,
+            },
+            methods: {
+                percent: function () {
+                    let point = (this.checkedNames.length * 100)/23
+                    // this.total = point
+                    return parseInt(point)                
+                },
+                level: function () {
+                    let point2 = parseInt((this.checkedNames.length * 100)/23  )    
+
+                    // console.log(point2)
+                    if (point2 >= 25) {
+                        return 'Beginner'
+                    }  
+                    if (point2 >= 40) {
+                        return 'Mid'
+                    }  
+                    if (point2 >= 60) {
+                        return 'Semi Pro'
+                    }  
+                    if (point2 >= 80) {
+                        return 'Pro'
+                    }  
+              }
+            }
+        })
+    </script>
+</body>
+
+</html>
